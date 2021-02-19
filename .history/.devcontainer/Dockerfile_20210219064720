@@ -34,8 +34,8 @@ WORKDIR /flasky
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 
 # Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights
-# RUN useradd appuser && chown -R appuser /app
-# USER appuser
+RUN useradd appuser && chown -R appuser /app
+USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "flasky\hello:app"]

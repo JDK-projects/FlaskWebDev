@@ -35,19 +35,26 @@
 	"extensions": [
 		"ms-python.python",
 		"ritwickdey.liveserver",
-		"codezombiech.gitignore"
+		"codezombiech.gitignore",
+		"mutantdino.resourcemonitor"
+	],
+
+	// somewhere to store bash command history across container builds
+	"mounts": [
+		"source=projectname-bashhistory,target=/commandhistory,type=volume"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [5000],
+	"forwardPorts": [5000, 10001],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "./.devcontainer/postCreateCommands.sh",
 
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode",
-
 	"containerEnv": {
-		"PYTHONPATH": "/workspaces/FlaskWebDev: /workspaces/FlaskWebDev/flasky"
-	  }
+		"PYTHONPATH": "/workspaces/FlaskWebDev/:/workspaces/FlaskWebDev/flasky/:/workspaces/FlaskWebDev/tests/",
+		// "DEBUGGER": "True"
+	  },
+
+	  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
 }

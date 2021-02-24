@@ -36,7 +36,8 @@
 		"ms-python.python",
 		"ritwickdey.liveserver",
 		"codezombiech.gitignore",
-		"mutantdino.resourcemonitor"
+		"mutantdino.resourcemonitor",
+		"ecmel.vscode-html-css",
 	],
 
 	// somewhere to store bash command history across container builds

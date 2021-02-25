@@ -142,4 +142,4 @@ dmypy.json
 cython_debug/
 
 # database
-.sqlite
+*.sqlite

@@ -19,9 +19,14 @@ ENV PYTHONUNBUFFERED 1
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
     && echo $SNIPPET >> "/root/.bashrc"
 
-# [Optional] If your pip requirements rarely change, uncomment this section to add them to the image.
+# APP pip requirements rarely change, uncomment this section to add them to the image.
 COPY requirements.txt /tmp/pip-tmp/
 RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
+   && rm -rf /tmp/pip-tmp
+
+# DEV pip requirements rarely change, uncomment this section to add them to the image.
+COPY dev_requirements.txt /tmp/pip-tmp/
+RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/dev_requirements.txt \
    && rm -rf /tmp/pip-tmp
 
 WORKDIR /flasky

@@ -4,8 +4,10 @@
     "python.languageServer": "Microsoft",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
-    "python.linting.pylintArgs": ["--load-plugins", "pylint-flask"],
-    "python.formatting.provider": "black",
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint-flask"
+    ],
     "files.autoSave": "afterDelay",
     "kite.showWelcomeNotificationOnStartup": false,
     "workbench.iconTheme": "vscode-icons",
@@ -36,5 +38,6 @@
     },
     "[sass]": {
         "editor.tabSize": 4,
-    }
+    },
+    "python.formatting.provider": "yapf"
 }

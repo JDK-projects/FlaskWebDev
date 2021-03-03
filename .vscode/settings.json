@@ -6,26 +6,28 @@
     "python.linting.pylintEnabled": true,
     "python.linting.pylintArgs": [
         "--load-plugins",
-        "pylint-flask"
+        "pylint-flask",
+        "--enable=W0614" // enable greyed unused imports
     ],
     "files.autoSave": "afterDelay",
     "kite.showWelcomeNotificationOnStartup": false,
     "workbench.iconTheme": "vscode-icons",
-    "editor.wordWrapColumn": 100,
     "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
     "terminal.integrated.fontWeight": null,
     "files.exclude": {
-        "**.pyc": true,
-        "**/__pycache__": true
+        "**/*.pyc": true,
+        "**/__pycache__": true,
     },
-
     "docker.images.sortBy": "CreatedTime",
     "docker.images.groupBy": "CreatedTime",
-
+    "editor.wordWrapColumn": 100,
     "editor.detectIndentation": false,
     "editor.suggestSelection": "first",
-    "editor.rulers": [80,120],
-
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.semanticHighlighting.enabled": true,
     "[python]": {
         "editor.tabSize": 4,
     },
@@ -39,5 +41,15 @@
     "[sass]": {
         "editor.tabSize": 4,
     },
-    "python.formatting.provider": "yapf"
+    "python.formatting.provider": "yapf",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./flasky",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.unittestEnabled": true
 }
